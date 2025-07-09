@@ -19,3 +19,5 @@ export default router;
 // It imports the necessary modules, defines the routes, and exports the router.
 // The `login` route handles user login, while the `register` route handles user registration.
 // The `auth.controller.js` file contains the logic for these operations.
+// The `verifyToken` middleware is used to protect the `getMe` and `signOut` routes,
+// ensuring that only authenticated users can access their own information and log out.

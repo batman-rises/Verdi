@@ -71,3 +71,10 @@ export const signOut = (req, res) => {
   res.clearCookie("token");
   res.status(200).json({ message: "Signed out successfully" });
 };
+
+// This code defines the authentication controller for user signup, login, fetching user details, and signing out.
+// It includes functions to handle user registration, login, retrieving user information, and signing out.
+// The signup function checks for existing users, hashes the password, and saves the new user.
+// The login function verifies the user's credentials, generates a JWT token, and sets it as a cookie.
+// The getMe function retrieves the current user's details based on the token in the request.
+// The signOut function clears the authentication cookie to log the user out.
