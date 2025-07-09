@@ -8,6 +8,9 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
+import Calculator from "./pages/Calculator";
+import Products from "./pages/Products";
+import Donations from "./pages/Donations";
 
 const App = () => {
   return (
@@ -24,6 +27,9 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/calculator" element={<Calculator />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/donations" element={<Donations />} />
       </Routes>
     </BrowserRouter>
   );
