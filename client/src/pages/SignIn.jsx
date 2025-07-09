@@ -85,3 +85,7 @@ function SignIn() {
   );
 }
 export default SignIn;
+// This code defines a SignIn component that allows users to log in to the application.
+// It includes a form for email and password input, handles form submission, and displays error messages if login fails.
+// The component uses React hooks for state management and Axios for making HTTP requests to the backend.
+// It also utilizes the AuthContext to fetch user data after a successful login and redirects the user to the dashboard page.
