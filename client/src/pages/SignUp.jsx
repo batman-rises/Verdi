@@ -41,61 +41,66 @@ const SignUp = () => {
   };
 
   return (
-    <div className="mx-auto p-6 max-w-md bg-white rounded-lg shadow-md">
-      <div className="flex flex-col items-center">
-        <div className="mb-4 flex items-center justify-center w-16 h-16 bg-green-500 rounded-full">
-          <FaLeaf size={40} color="#ffffff" />
+    <div>
+      <a href="/" className="text-green-500 hover:underline block text-sm mb-4">
+        ← Back to Home
+      </a>
+      <div className="mx-auto p-6 max-w-md bg-white rounded-lg shadow-md">
+        <div className="flex flex-col items-center">
+          <div className="mb-4 flex items-center justify-center w-16 h-16 bg-green-500 rounded-full">
+            <FaLeaf size={40} color="#ffffff" />
+          </div>
+          <h1 className="text-2xl font-bold">Join Verda</h1>
+          <p className="text-gray-600">Start your sustainable journey today</p>
         </div>
-        <h1 className="text-2xl font-bold">Join Verda</h1>
-        <p className="text-gray-600">Start your sustainable journey today</p>
-      </div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <div className="flex flex-col">
-          <label htmlFor="name">Name:</label>
-          <input
-            className="border border-gray-300 p-2 rounded"
-            type="text"
-            id="name"
-            name="name"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="email">Email:</label>
-          <input
-            className="border border-gray-300 p-2 rounded"
-            type="email"
-            id="email"
-            name="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="password">Password:</label>
-          <input
-            className="border border-gray-300 p-2 rounded "
-            type="password"
-            id="password"
-            name="password"
-            onChange={handleChange}
-          />
-        </div>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div className="flex flex-col">
+            <label htmlFor="name">Name:</label>
+            <input
+              className="border border-gray-300 p-2 rounded"
+              type="text"
+              id="name"
+              name="name"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="email">Email:</label>
+            <input
+              className="border border-gray-300 p-2 rounded"
+              type="email"
+              id="email"
+              name="email"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="password">Password:</label>
+            <input
+              className="border border-gray-300 p-2 rounded "
+              type="password"
+              id="password"
+              name="password"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <button
+              className="bg-green-500 text-white p-2 rounded w-full hover:bg-green-600 transition-colors duration-300"
+              type="submit"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
         <div>
-          <button
-            className="bg-green-500 text-white p-2 rounded w-full hover:bg-green-600 transition-colors duration-300"
-            type="submit"
-          >
-            Sign Up
-          </button>
+          <p className="text-gray-600 mt-4">
+            Already have an account?{" "}
+            <a href="/login" className="text-green-500 hover:underline">
+              Log In
+            </a>
+          </p>
         </div>
-      </form>
-      <div>
-        <p className="text-gray-600 mt-4">
-          Already have an account?{" "}
-          <a href="/login" className="text-green-500 hover:underline">
-            Log In
-          </a>
-        </p>
       </div>
       {error && (
         <div className="bg-red-100 text-red-700 p-2 rounded mt-2 text-sm">
