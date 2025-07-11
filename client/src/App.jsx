@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import Calculator from "./pages/Calculator";
 import Products from "./pages/Products";
 import Donations from "./pages/Donations";
+import Recycling from "./pages/Recycling";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/products" element={<Products />} />
         <Route path="/donations" element={<Donations />} />
+        <Route path="/recycling" element={<Recycling />} />
       </Routes>
     </BrowserRouter>
   );

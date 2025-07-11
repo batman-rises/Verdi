@@ -59,6 +59,12 @@ const Header = () => {
             >
               Donations
             </Link>
+            <Link
+              to="/recycling"
+              className="text-gray-700 hover:text-green-600 hover:underline transition-colors duration-200"
+            >
+              Recycling
+            </Link>
           </div>
 
           {/* Desktop Auth Buttons */}
@@ -126,6 +132,13 @@ const Header = () => {
                 className="block px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
               >
                 Donations
+              </Link>
+              <Link
+                onClick={closeMenu}
+                className="block px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                to="/recycling"
+              >
+                Recycling
               </Link>
 
               {/* Mobile Auth Buttons */}
