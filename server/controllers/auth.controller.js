@@ -7,6 +7,8 @@ import { verifyToken } from "../utils/verifyToken.js";
 
 export const signup = async (req, res, next) => {
   const { name, email, password, role } = req.body;
+  console.log("Received body:", req.body);
+
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -24,8 +26,15 @@ export const signup = async (req, res, next) => {
 };
 export const login = async (req, res, next) => {
   const { email, password } = req.body;
+
   try {
     const user = await User.findOne({ email });
+    console.log("Login attempt:", email);
+    console.log("Found user:", user);
+    console.log(
+      "Password match:",
+      await bcrypt.compare(password, user?.password)
+    );
     if (!user) {
       return next(errorHandler(404, "User not found"));
     }

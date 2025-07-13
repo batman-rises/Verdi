@@ -12,6 +12,7 @@ import Calculator from "./pages/Calculator";
 import Products from "./pages/Products";
 import Donations from "./pages/Donations";
 import Recycling from "./pages/Recycling";
+import RetailerDashboard from "./pages/RetailerDashboard";
 
 const App = () => {
   return (
@@ -25,6 +26,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/retailer-dashboard"
+          element={
+            <ProtectedRoute>
+              <RetailerDashboard />
             </ProtectedRoute>
           }
         />

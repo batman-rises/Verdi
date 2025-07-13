@@ -3,8 +3,13 @@ import { FaLeaf } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [formData, setformData] = useState({});
+  const [formData, setformData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState("");
+  const [role, setRole] = useState("");
   const navigate = useNavigate();
   const handleChange = (e) => {
     setformData({ ...formData, [e.target.id]: e.target.value });
@@ -12,7 +17,15 @@ const SignUp = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Clear any previous errors
+    setError(""); // Clear previous error
+
+    const payload = { ...formData, role };
+
+    // Basic field validation
+    if (!payload.name || !payload.email || !payload.password || !payload.role) {
+      setError("Please fill in all fields and select a role.");
+      return;
+    }
 
     try {
       const res = await fetch("http://localhost:5000/api/auth/signup", {
@@ -20,23 +33,19 @@ const SignUp = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        // Show backend error message or fallback
-        throw new Error(
-          data.message || "Something went wrong. Please try again."
-        );
+        throw new Error(data.message || "Something went wrong.");
       }
 
-      // If success, redirect to login page
       navigate("/");
     } catch (error) {
-      setError("Server error. Please try again later.");
-      console.error("Error during sign up:", error);
+      setError(error.message);
+      console.error("Signup error:", error);
     }
   };
 
@@ -45,6 +54,7 @@ const SignUp = () => {
       <a href="/" className="text-green-500 hover:underline block text-sm mb-4">
         ← Back to Home
       </a>
+
       <div className="mx-auto p-6 max-w-md bg-white rounded-lg shadow-md">
         <div className="flex flex-col items-center">
           <div className="mb-4 flex items-center justify-center w-16 h-16 bg-green-500 rounded-full">
@@ -83,6 +93,25 @@ const SignUp = () => {
               name="password"
               onChange={handleChange}
             />
+          </div>
+          <div className="flex flex-col">
+            <label>Choose Role:</label>
+            <select
+              className="border border-gray-300"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              required
+            >
+              <option className="border border-gray-300" value="">
+                --Select--
+              </option>
+              <option className="border border-gray-300" value="user">
+                Join Verda as a Customer
+              </option>
+              <option className="border border-gray-300" value="retailer">
+                Join Verda as a Retailer
+              </option>
+            </select>
           </div>
           <div>
             <button

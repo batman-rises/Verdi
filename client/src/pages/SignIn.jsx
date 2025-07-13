@@ -15,8 +15,12 @@ function SignIn() {
       await axios.post("http://localhost:5000/api/auth/login", form, {
         withCredentials: true,
       });
-      await fetchUser();
-      navigate("/dashboard");
+      const user = await fetchUser();
+      if (user?.role === "retailer") {
+        navigate("/retailer-dashboard");
+      } else {
+        navigate("/dashboard");
+      }
     } catch (err) {
       setError("Invalid credentials. Please try again.");
     }
