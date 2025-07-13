@@ -1,11 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+dotenv.config(); // Move this right after the dotenv import
+
 import authRoutes from "./routes/auth.route.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import productRoutes from "./routes/product.route.js";
-dotenv.config();
+// dotenv.config();   dotenv should be imported before using any env variables
 const app = express();
 
 app.use(
@@ -17,7 +19,9 @@ app.use(
 app.use(express.json());
 app.use(cookieParser()); // if using cookies
 
-app.use(express.json());
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
+
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 

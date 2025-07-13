@@ -36,6 +36,12 @@ const Header = () => {
               Home
             </Link>
             <Link
+              to="/retailer-dashboard"
+              className="text-gray-700 hover:text-green-600 hover:underline transition-colors duration-200"
+            >
+              R. Dashboard
+            </Link>
+            <Link
               to="/dashboard"
               className="text-gray-700 hover:text-green-600 hover:underline transition-colors duration-200"
             >
