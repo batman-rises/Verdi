@@ -11,17 +11,14 @@ const RetailerDashboard = () => {
     formData.append("category", e.target.category.value);
     formData.append("image", e.target.image.files[0]);
     try {
-      const response = await fetch(
-        "http://localhost:5000/api/products/createProduct",
-        {
-          method: "POST",
-          // headers: {
-          //   "Content-Type": "application/json",
-          // }, error  throw korche BC
-          credentials: "include",
-          body: formData,
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/products", {
+        method: "POST",
+        // headers: {
+        //   "Content-Type": "application/json",
+        // }, error  throw korche BC
+        credentials: "include",
+        body: formData,
+      });
 
       const data = await response.json();
       console.log("Response:", data);
@@ -39,6 +36,9 @@ const RetailerDashboard = () => {
 
   return (
     <>
+      <a href="/" className="text-green-500 hover:underline block text-sm mb-4">
+        ← Back to Home
+      </a>
       <h1>Retailer Dashboard</h1>
       <div className="max-w-md mx-auto">
         <form

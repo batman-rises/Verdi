@@ -11,15 +11,15 @@ import dotenv from "dotenv";
 dotenv.config();
 import { v2 as cloudinary } from "cloudinary";
 
-// Debug: Check if env variables are loaded
-console.log("=== CLOUDINARY DEBUG ===");
-console.log("CLOUDINARY_CLOUD_NAME:", process.env.CLOUDINARY_CLOUD_NAME);
-console.log("CLOUDINARY_API_KEY:", process.env.CLOUDINARY_API_KEY);
-console.log(
-  "CLOUDINARY_API_SECRET:",
-  process.env.CLOUDINARY_API_SECRET ? "***SET***" : "NOT SET"
-);
-console.log("========================");
+// // Debug: Check if env variables are loaded
+// console.log("=== CLOUDINARY DEBUG ===");
+// console.log("CLOUDINARY_CLOUD_NAME:", process.env.CLOUDINARY_CLOUD_NAME);
+// console.log("CLOUDINARY_API_KEY:", process.env.CLOUDINARY_API_KEY);
+// console.log(
+//   "CLOUDINARY_API_SECRET:",
+//   process.env.CLOUDINARY_API_SECRET ? "***SET***" : "NOT SET"
+// );
+// console.log("========================");
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

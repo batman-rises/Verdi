@@ -8,12 +8,7 @@ import upload from "../middleware/Upload.js";
 
 const router = express.Router();
 
-router.post(
-  "/createProduct",
-  verifyToken,
-  upload.single("image"),
-  createProduct
-);
-router.get("/getProducts", getProducts);
+router.post("/", verifyToken, upload.single("image"), createProduct); // POST /api/products
+router.get("/", getProducts); // GET /api/products
 
 export default router;
